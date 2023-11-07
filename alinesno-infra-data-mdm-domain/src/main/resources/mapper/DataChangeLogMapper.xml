@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alinesno.infra.data.mdm.mapper.DataChangeLogMapper">
+
+    <resultMap type="com.alinesno.infra.data.mdm.entity.DataChangeLogEntity" id="DataChangeLogResult">
+        <!-- 根据实体类的属性补充完整result内容 -->
+        <id column="id" property="id" />
+        <result column="identity" property="identity" />
+        <result column="cata_name" property="cataName" />
+        <result column="naming_convention" property="namingConvention" />
+        <result column="sc_sys_id" property="sourceSystemId" />
+        <result column="classify_id" property="classifyId" />
+        <result column="parent_cata_id" property="parentCategoryId" />
+        <result column="remark" property="remark" />
+        <result column="old_id" property="oldId" />
+    </resultMap>
+
+</mapper>

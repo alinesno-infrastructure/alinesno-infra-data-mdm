@@ -11,7 +11,7 @@
 export default {
   data () {
     return {
-      currentApplicationName: '主数据治理服务'
+      currentApplicationName: '主数据服务'
     }
   },
   mounted () {

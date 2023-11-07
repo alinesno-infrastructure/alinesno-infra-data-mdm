@@ -1,7 +1,7 @@
 {
-  "name": "alinesno-infra-data-mdm-admin",
+  "name": "alinesno-infra-base-mdm-admin",
   "version": "1.0.0",
-  "description": "主数据治理服务",
+  "description": "主数据服务",
   "author": "LuoXiaoDong",
   "license": "Apache-2.0",
   "scripts": {
