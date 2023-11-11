@@ -15,41 +15,54 @@
       </el-col>
       <el-col :span="19" ><div class="grid-content bg-purple-light" width="1850px"></div>
         <el-form :model="queryParams" ref="queryForm" :inline="true" v-show="showSearch" label-width="68px">
+
+         <el-form-item label="权限字符" prop="roleKey">
+            <el-input
+               v-model="queryParams.roleKey"
+               placeholder="请输入权限字符"
+               clearable
+               style="width: 240px"
+               @keyup.enter="handleQuery"
+            />
+         </el-form-item>
+
             <el-form-item label="标识" prop="identity" id="queryId" >
               <el-input
                 v-model="queryParams.identity"
                 ref="queryParams.identity"
                 placeholder="请输入标识"
                 clearable
-                size="small"
+                
                 wrapper="eq"
                 @keyup.enter.native="handleQuery"
               />
             </el-form-item>
+            
             <el-form-item label="名称" prop="name" >
               <el-input
                 v-model="queryParams.name"
                 ref="queryParams.name"
                 placeholder="请输入名称"
                 clearable
-                size="small"
+                
                 wrapper="eq"
                 @keyup.enter.native="handleQuery"
               />
             </el-form-item>
 
             <el-form-item>
-              <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
-              <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
+              <el-button type="primary" icon="Search" size="mini" @click="handleQuery">搜索</el-button>
+              <el-button icon="Refresh" size="mini" @click="resetQuery">重置</el-button>
             </el-form-item>
         </el-form>
 
         <el-row :gutter="10" class="mb8">
+
             <el-col :span="1.5">
               <el-button
                 type="primary"
                 plain
-                icon="el-icon-plus"
+                icon="Plus"
                 size="mini"
                 @click="handleAdd"
               >新增</el-button>
@@ -58,7 +71,7 @@
               <el-button
                 type="success"
                 plain
-                icon="el-icon-edit"
+                icon="Edit"
                 size="mini"
                 :disabled="single"
                 @click="handleUpdate"
@@ -68,7 +81,7 @@
               <el-button
                 type="danger"
                 plain
-                icon="el-icon-delete"
+                icon="Delete"
                 size="mini"
                 :disabled="multiple"
                 @click="handleDelete"
@@ -92,19 +105,19 @@
           <el-table-column label="标识" align="left" prop="identity" id="identityTable" />
           <el-table-column label="父分类" align="left" prop="parentNameLabel" />
           <el-table-column label="备注" align="left" prop="remark" />
-          <el-table-column label="添加时间" align="left" prop="updateTime" />
+          <el-table-column label="添加时间" align="left" prop="addTime" />
           <el-table-column label="操作" width="180" align="center" class-name="small-padding fixed-width">
             <template  #default="scope">
               <el-button
                 size="mini"
                 type="text"
-                icon="el-icon-edit"
+                icon="Edit"
                 @click="handleUpdate(scope.row)"
               >修改</el-button>
               <el-button
                 size="mini"
                 type="text"
-                icon="el-icon-delete"
+                icon="Delete"
                 @click="handleDelete(scope.row)"
               >删除</el-button>
             </template>
@@ -125,7 +138,7 @@
     <el-dialog :title="title" v-model="open" width="480px" append-to-body :close-on-click-modal="false">
       <el-form ref="formRef" :model="form" :rules="rules" label-width="80px">
         <el-form-item label="父分类" prop="parentId">
-          <el-select v-model="form.parentId" placeholder="请选择父目录" style="width:360px" clearable size="small" filterable>
+          <el-select v-model="form.parentId" placeholder="请选择父目录" style="width:360px" clearable  filterable>
             <el-option  v-for="item in IndustryClassifyList_all"
                         :key="item.id"
                         :label="item.identity+ ' ' + item.name"

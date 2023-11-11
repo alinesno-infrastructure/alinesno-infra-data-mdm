@@ -5,6 +5,8 @@ import com.alinesno.infra.common.web.adapter.plugins.TranslateCode;
 import com.alinesno.infra.common.web.adapter.plugins.TranslatePlugin;
 import com.alinesno.infra.data.mdm.entity.IndustryClassifyEntity;
 import com.alinesno.infra.data.mdm.service.IIndustryClassifyService;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -30,32 +32,38 @@ public class IndustryClassifyPlugin implements TranslatePlugin {
     private Map<String, IndustryClassifyEntity> industryClassifyMap = null ;
 
     @Override
-    public void translate(List<JSONObject> node, TranslateCode convertCode) {
+    public void translate(ArrayNode node, TranslateCode convertCode) {
 
 
         //获取数据目录列表
         List<String> parentIds = this.extractIds(node, PARENTID);
         if(!CollectionUtils.isEmpty(parentIds)) {
 			List<IndustryClassifyEntity> industryClassifylist = this.industryClassifyService.findByIds(parentIds);
-            industryClassifyMap = this.toEntityMap(industryClassifylist, node);
+            industryClassifyMap = this.toEntityMap(industryClassifylist);
         }
 
         //转换逻辑
         node.forEach(jsonObject -> {
 
             //从返回的列表中获取行业分类id
-            String parentId = jsonObject.getString(PARENTID);
+            String parentId = jsonObject.get(PARENTID).asText();
+
             //从查找的列表里拿到对应的取数据目录
             if(industryClassifyMap != null) {
                 IndustryClassifyEntity industryClassify = industryClassifyMap.get(parentId);
 				if (industryClassify != null) {
 					//设置返回值
-					jsonObject.put(PARENTNAME + LABEL_SUFFER, industryClassify.getName());
+
+                    ObjectNode rootNode = (ObjectNode) jsonObject;
+					rootNode.put(PARENTNAME + LABEL_SUFFER, industryClassify.getName());
+
+                    node.set(1 ,rootNode) ;
 				}
                 else {
 
                     //设置返回值
-                    jsonObject.put(PARENTNAME + LABEL_SUFFER, "无");
+                    ObjectNode rootNode = (ObjectNode) jsonObject;
+                    rootNode.put(PARENTNAME + LABEL_SUFFER, "无");
                 }
             }
 

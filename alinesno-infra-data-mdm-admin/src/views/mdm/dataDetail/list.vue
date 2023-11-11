@@ -17,7 +17,7 @@
     <el-col :span="20" ><div class="grid-content bg-purple-light" width="1850px"></div>
     <el-form :model="queryParams" ref="queryForm" :inline="true" v-show="showSearch" label-width="68px">
       <el-form-item label="行业分类" prop="classifyId"  label-width="150px" >
-        <el-select  v-model="queryParams.classifyId" placeholder="请选择行业分类" @change="$forceUpdate()"   clearable size="small">
+        <el-select  v-model="queryParams.classifyId" placeholder="请选择行业分类" @change="$forceUpdate()"   clearable >
           <el-option
             v-for="item in classifyList"
             :key="item.id"
@@ -33,7 +33,7 @@
           ref="queryParams.standardName"
           placeholder="请输入数据标准名称"
           clearable
-          size="small"
+          
           wrapper="eq"
           @keyup.enter.native="handleQuery"
         />
@@ -44,15 +44,15 @@
           ref="queryParams.code"
           placeholder="请输入编码"
           clearable
-          size="small"
+          
           wrapper="eq"
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
 
       <el-form-item>
-        <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
-        <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
+        <el-button type="primary" icon="Search" size="mini" @click="handleQuery">搜索</el-button>
+        <el-button icon="Refresh" size="mini" @click="resetQuery">重置</el-button>
       </el-form-item>
     </el-form>
 
@@ -61,7 +61,7 @@
         <el-button
           type="primary"
           plain
-          icon="el-icon-plus"
+          icon="Plus"
           size="mini"
           @click="handleAdd"
         >新增</el-button>
@@ -70,7 +70,7 @@
         <el-button
           type="success"
           plain
-          icon="el-icon-edit"
+          icon="Edit"
           size="mini"
           :disabled="single"
           @click="handleUpdate"
@@ -80,7 +80,7 @@
         <el-button
           type="danger"
           plain
-          icon="el-icon-delete"
+          icon="Delete"
           size="mini"
           :disabled="multiple"
           @click="handleDelete"
@@ -136,13 +136,13 @@
               <el-button
                 size="mini"
                 type="text"
-                icon="el-icon-edit"
+                icon="Edit"
                 @click="handleUpdate(scope.row)"
               >修改</el-button>
               <el-button
                 size="mini"
                 type="text"
-                icon="el-icon-delete"
+                icon="Delete"
                 @click="handleDelete(scope.row)"
               >删除</el-button>
               <el-button
@@ -169,7 +169,7 @@
     <el-dialog :title="title" v-model="open" width="480px" append-to-body :close-on-click-modal="false">
       <el-form ref="formDef" :model="form" :rules="rules" label-width="80px">
         <el-form-item label="数据目录" prop="cataId" >
-          <el-select v-model="form.cataId" placeholder="请选择数据目录"  style="width:360px" clearable size="small" filterable >
+          <el-select v-model="form.cataId" placeholder="请选择数据目录"  style="width:360px" clearable  filterable >
             <el-option  v-for="item in DataCatagorylist"
                         :key="item.id"
                         :label="item.cataName"

@@ -1,6 +1,6 @@
 <template>
 	<div>
-        <el-table size="small" :data="tableData" style="width: 100%" height="600">
+        <el-table  :data="tableData" style="width: 100%" height="600">
             <el-table-column label="组件名称" prop="name" width="250"></el-table-column>
             <el-table-column label="组件参数" prop="extendInfo"></el-table-column>
             <el-table-column label="组件代码" prop="content" width="200">
@@ -12,8 +12,8 @@
             <el-table-column label="排序" prop="orderNum" width="100"></el-table-column>
             <el-table-column label="执行事件" prop="event" width="160">
                 <template slot-scope="scope">
-                    <el-tag v-if="scope.row.event==='request'" size="small" effect="plain">REQUEST</el-tag>
-                    <el-tag v-if="scope.row.event==='response'" size="small" type="success" effect="plain">RESPONSE</el-tag>
+                    <el-tag v-if="scope.row.event==='request'"  effect="plain">REQUEST</el-tag>
+                    <el-tag v-if="scope.row.event==='response'"  type="success" effect="plain">RESPONSE</el-tag>
                 </template>
             </el-table-column>
             <el-table-column label="创建时间" prop="createTime" width="200"></el-table-column>

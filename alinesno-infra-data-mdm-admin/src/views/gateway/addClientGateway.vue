@@ -8,7 +8,7 @@
 				<el-table-column label="服务地址" prop="uri"></el-table-column>
 				<el-table-column label="操作" width="60">
 					<template slot-scope="scope">
-						<el-button size="mini" circle icon="el-icon-plus" type="success" title="添加" @click="handleAddRegServer(scope.row)"></el-button>
+						<el-button size="mini" circle icon="Plus" type="success" title="添加" @click="handleAddRegServer(scope.row)"></el-button>
 					</template>
 				</el-table-column>
 			</el-table>
@@ -24,7 +24,7 @@
 				</el-pagination>
 			</div>
 			<div slot="footer" class="dialog-footer">
-				<el-button @click="dialogFormVisible = false" size="small">关 闭</el-button>
+				<el-button @click="dialogFormVisible = false" >关 闭</el-button>
 			</div>
 		</el-dialog>
 
@@ -50,17 +50,17 @@
 							</span>
 						</span>
 						<div style="float: right; margin-left: 10px;">
-						    <el-button icon="el-icon-circle-plus-outline" size="small" type="success" @click="search" title="查找服务端"> 添加服务 </el-button>
+						    <el-button icon="el-icon-circle-plus-outline"  type="success" @click="search" title="查找服务端"> 添加服务 </el-button>
 						</div>
 						<div style="float: right; margin-left: 10px;">
-						    <el-button icon="el-icon-s-claim" size="small" type="primary" @click="startAll" title="启用所有客户端通行"> 全部允许 </el-button>
+						    <el-button icon="el-icon-s-claim"  type="primary" @click="startAll" title="启用所有客户端通行"> 全部允许 </el-button>
 						</div>
 						<div style="float: right; margin-left: 10px;">
-						    <el-button icon="el-icon-circle-close" size="small" type="danger" @click="stopAll" title="禁用所有客户端通行"> 全部禁止 </el-button>
+						    <el-button icon="el-icon-circle-close"  type="danger" @click="stopAll" title="禁用所有客户端通行"> 全部禁止 </el-button>
 						</div>
 					</div>
 
-					<el-table size="small" :data="tableData" style="width: 100%">
+					<el-table  :data="tableData" style="width: 100%">
 						<el-table-column label="服务ID" prop="routeId"></el-table-column>
 						<el-table-column label="服务名称" prop="name"></el-table-column>
 						<el-table-column label="服务地址" prop="uri"></el-table-column>

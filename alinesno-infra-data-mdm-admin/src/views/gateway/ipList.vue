@@ -35,21 +35,21 @@
 							<el-select v-model="status" slot="prepend" placeholder="请选择" style="width: 120px;">
 								<el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
 							</el-select>
-							<el-button slot="append" icon="el-icon-search" @click="search"></el-button>
+							<el-button slot="append" icon="Search" @click="search"></el-button>
 						</el-input>
 					</div>
 				</el-col>
 			</el-row>
-			<el-table size="small" :data="tableData" style="width: 100%">
+			<el-table  :data="tableData" style="width: 100%">
 				<el-table-column label="IP地址" prop="ip">
 					<template slot-scope="scope">
-						<el-tag size="small" type="success" style="font-weight: bold;">{{scope.row.ip}}</el-tag>
+						<el-tag  type="success" style="font-weight: bold;">{{scope.row.ip}}</el-tag>
 					</template>
 				</el-table-column>
 				<el-table-column label="状态" prop="status">
 					<template slot-scope="scope">
-						<el-tag effect="dark" size="small" v-if="scope.row.status === '0'" type="">允许通行</el-tag>
-						<el-tag effect="dark" size="small" v-if="scope.row.status === '1'" type="danger">禁止通行</el-tag>
+						<el-tag effect="dark"  v-if="scope.row.status === '0'" type="">允许通行</el-tag>
+						<el-tag effect="dark"  v-if="scope.row.status === '1'" type="danger">禁止通行</el-tag>
 					</template>
 				</el-table-column>
 				<el-table-column label="创建时间" prop="createTime"></el-table-column>

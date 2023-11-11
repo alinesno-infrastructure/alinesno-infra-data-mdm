@@ -26,7 +26,7 @@
 							<el-button slot="reference" style="padding: 3px 0; " icon="el-icon-question" type="text" title="说明"></el-button>
 						</el-popover>
 						<div style="float: right; margin-left: 10px;">
-						    <el-button icon="el-icon-delete" size="mini" type="warning" @click="resetForm"> 清 空 </el-button>
+						    <el-button icon="Delete" size="mini" type="warning" @click="resetForm"> 清 空 </el-button>
 						</div>
 						<div style="float: right; margin-left: 10px;">
 						    <el-button icon="el-icon-s-claim" size="mini" type="success" @click="submit"> 发 布 </el-button>
@@ -167,12 +167,12 @@
 					    <div><el-checkbox v-model="hystrix.customChecked" @change="handleHystrixChecked('custom')">启用</el-checkbox></div>
 					    <div>启用超时检测，当请求到响应返回的时间，超过自定义时长后，将触发自定义Hystrix熔断方法（name: customHystrix_no），默认回调路径fallbackUri: forward:/fallback/custom 。(如无特殊要求，<span style="font-weight: bold;">强列建议用默认全局Hystrix方法</span>，过多定制Hystrix否则会增加gateway网关服务性能压力)</div>
 						<div style="margin-top: 10px;">
-							<el-input size="small" placeholder="触发fallbackcmd超时时长,如:3000" v-model="form.fallbackTimeout">
+							<el-input  placeholder="触发fallbackcmd超时时长,如:3000" v-model="form.fallbackTimeout">
 							  <template slot="prepend">超时时长</template>
 							</el-input>
 						</div>
 						<div style="margin-top: 10px;">
-							<el-input size="small" placeholder="触发fallbackcmd提示内容,如:system is error" v-model="form.fallbackMsg">
+							<el-input  placeholder="触发fallbackcmd提示内容,如:system is error" v-model="form.fallbackMsg">
 							  <template slot="prepend">提示内容</template>
 							</el-input>
 						</div>
@@ -217,12 +217,12 @@
 							</el-popover>
 						</div>
 						<div style="margin-top: 10px;">
-							<el-input size="small" placeholder="示例：user1@qq.com,user2@qq.com" v-model="form.monitor.emails" maxlength="200" show-word-limit>
+							<el-input  placeholder="示例：user1@qq.com,user2@qq.com" v-model="form.monitor.emails" maxlength="200" show-word-limit>
 							  <template slot="prepend">通知邮箱</template>
 							</el-input>
 						</div>
 						<div style="margin-top: 10px;">
-							<el-input size="small" placeholder="示例：XXX网关服务发生告警，请及时处理" v-model="form.monitor.topic" maxlength="200" show-word-limit>
+							<el-input  placeholder="示例：XXX网关服务发生告警，请及时处理" v-model="form.monitor.topic" maxlength="200" show-word-limit>
 							  <template slot="prepend">告警提示</template>
 							</el-input>
 						</div>
@@ -284,7 +284,7 @@
 								<span class="text item" style="line-height: 38px;">令牌总量</span>
 							</el-col>
 							<el-col :span="19">
-								<el-input-number size="small" v-model="form.burstCapacity" :step="20" :min="0" :max="10000" style="width: 60%;"/>
+								<el-input-number  v-model="form.burstCapacity" :step="20" :min="0" :max="10000" style="width: 60%;"/>
 							</el-col>
 						</el-row>
 					</div>
@@ -294,7 +294,7 @@
 								<span class="text item" style="line-height: 38px;">每秒流量</span>
 							</el-col>
 							<el-col :span="19">
-								<el-slider size="small" v-model="form.replenishRate" :step="1" :min="0" :max="form.burstCapacity" show-stops />
+								<el-slider  v-model="form.replenishRate" :step="1" :min="0" :max="form.burstCapacity" show-stops />
 							</el-col>
 						</el-row>
 					</div>
@@ -340,7 +340,7 @@
 					    <div><el-checkbox v-model="access.headerChecked">启用</el-checkbox></div>
 					    <div>获取客户端请求中的所带的HEADER头部信息，验证指定键值，不符合验证规则，则直接拒决请求。</div>
 						<div style="margin-top: 10px;">
-							<el-input size="small" placeholder="示例：Accept-Language: zh-CN,zh;q=0.9" v-model="form.accessHeader">
+							<el-input  placeholder="示例：Accept-Language: zh-CN,zh;q=0.9" v-model="form.accessHeader">
 							  <template slot="prepend">HEADER</template>
 							</el-input>
 						</div>
@@ -352,7 +352,7 @@
 					    <div><el-checkbox v-model="access.ipChecked">启用</el-checkbox></div>
 					    <div>如果启用IP过滤，则会先执行IP过滤后，再执行本IP验证，不符合验证规则，则直接拒决请求。通常用于临时性IP过滤。</div>
 						<div style="margin-top: 10px;">
-							<el-input size="small" placeholder="示例：192.168.1.100,92.168.1.*" v-model="form.accessIp">
+							<el-input  placeholder="示例：192.168.1.100,92.168.1.*" v-model="form.accessIp">
 							  <template slot="prepend">IP</template>
 							</el-input>
 						</div>
@@ -364,7 +364,7 @@
 					    <div><el-checkbox v-model="access.parameterChecked">启用</el-checkbox></div>
 					    <div>获取URL请求串中的所带的参数，验证指定参数值，不符合验证规则，则直接拒决请求。</div>
 						<div style="margin-top: 10px;">
-							<el-input size="small" placeholder="示例：token=uuid" v-model="form.accessParameter">
+							<el-input  placeholder="示例：token=uuid" v-model="form.accessParameter">
 							  <template slot="prepend">请求参数</template>
 							</el-input>
 						</div>
@@ -376,7 +376,7 @@
 					    <div><el-checkbox v-model="access.timeChecked">启用</el-checkbox></div>
 					    <div>只允许指定时间段内进行访问，不符合验证规则，则直接拒决请求。</div>
 						<div style="margin-top: 10px;">
-							<el-input size="small" placeholder="示例：08:00:00,20:00:00" v-model="form.accessTime">
+							<el-input  placeholder="示例：08:00:00,20:00:00" v-model="form.accessTime">
 							  <template slot="prepend">时间</template>
 							</el-input>
 						</div>
@@ -388,7 +388,7 @@
 					    <div><el-checkbox v-model="access.cookieChecked">启用</el-checkbox></div>
 					    <div>获取客户端请求所带的cookie信息，验证指定cookie参数值，不符合验证规则，则直接拒决请求。</div>
 						<div style="margin-top: 10px;">
-							<el-input size="small" placeholder="示例：name=value" v-model="form.accessCookie">
+							<el-input  placeholder="示例：name=value" v-model="form.accessCookie">
 							  <template slot="prepend">Cookie</template>
 							</el-input>
 						</div>

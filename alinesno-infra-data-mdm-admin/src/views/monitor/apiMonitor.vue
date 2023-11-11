@@ -3,39 +3,39 @@
 		<el-dialog title="监控告警信息" :visible.sync="dialogFormVisible" width="25%" :close-on-click-modal="false">
 			<el-form :model="infoForm" ref="infoForm" :label-width="formLabelWidth">
 				<el-form-item label="服务ID：" size="mini">
-					<el-tag size="small">{{infoForm.routeId}}</el-tag>
+					<el-tag >{{infoForm.routeId}}</el-tag>
 				</el-form-item>
 				<el-form-item label="服务名称：" size="mini">
-					<el-tag size="small">{{infoForm.name}}</el-tag>
+					<el-tag >{{infoForm.name}}</el-tag>
 				</el-form-item>
 				<el-form-item label="服务地址：" size="mini">
-					<el-tag size="small" type="success">{{infoForm.uri}}</el-tag>
+					<el-tag  type="success">{{infoForm.uri}}</el-tag>
 				</el-form-item>
 				<el-form-item label="断言路径：" size="mini">
-					<el-tag size="small" type="success">{{infoForm.path}}</el-tag>
+					<el-tag  type="success">{{infoForm.path}}</el-tag>
 				</el-form-item>
 				<el-form-item v-show="infoForm.method != ''" label="请求模式：" size="mini">
-					<el-tag size="small" type="success">{{infoForm.method}}</el-tag>
+					<el-tag  type="success">{{infoForm.method}}</el-tag>
 				</el-form-item>
 				<el-form-item label="告警状态：" size="mini">
-					<el-tag v-show="infoForm.status != '2'" size="small" type="" effect="dark">正常</el-tag>
-					<el-tag v-show="infoForm.status == '2'" size="small" type="danger" effect="dark">告警</el-tag>
+					<el-tag v-show="infoForm.status != '2'"  type="" effect="dark">正常</el-tag>
+					<el-tag v-show="infoForm.status == '2'"  type="danger" effect="dark">告警</el-tag>
 				</el-form-item>
 				<el-form-item v-show="infoForm.status == '2'" label="告警时间：" size="mini">
-					<el-tag size="small" type="danger" effect="dark">{{infoForm.alarmTime}}</el-tag>
+					<el-tag  type="danger" effect="dark">{{infoForm.alarmTime}}</el-tag>
 				</el-form-item>
 				<el-form-item label="告警重试：" size="mini">
-					<el-tag v-show="infoForm.recover == '0'" size="small" type="" effect="dark">启用</el-tag>
-					<el-tag v-show="infoForm.recover == '1'" size="small" type="danger" effect="dark">禁止</el-tag>
+					<el-tag v-show="infoForm.recover == '0'"  type="" effect="dark">启用</el-tag>
+					<el-tag v-show="infoForm.recover == '1'"  type="danger" effect="dark">禁止</el-tag>
 				</el-form-item>
 				<el-form-item label="通知频率：" size="mini">
-					<el-tag v-for="item in monitorOptions" :key="item.value"  v-show="infoForm.frequency == item.value" size="small" type="" effect="dark">{{item.label}}</el-tag>
+					<el-tag v-for="item in monitorOptions" :key="item.value"  v-show="infoForm.frequency == item.value"  type="" effect="dark">{{item.label}}</el-tag>
 				</el-form-item>
 				<el-form-item v-show="infoForm.emails != null && infoForm.emails != ''" label="通知邮箱：" size="mini">
-					<el-tag size="small" type="" effect="dark">{{infoForm.emails}}</el-tag>
+					<el-tag  type="" effect="dark">{{infoForm.emails}}</el-tag>
 				</el-form-item>
 				<el-form-item v-show="infoForm.sendTime != null && infoForm.sendTime != ''" label="通知时间：" size="mini">
-					<el-tag size="small" type="" effect="dark">{{infoForm.sendTime}}</el-tag>
+					<el-tag  type="" effect="dark">{{infoForm.sendTime}}</el-tag>
 				</el-form-item>
 			</el-form>
 			<div slot="footer" class="dialog-footer">

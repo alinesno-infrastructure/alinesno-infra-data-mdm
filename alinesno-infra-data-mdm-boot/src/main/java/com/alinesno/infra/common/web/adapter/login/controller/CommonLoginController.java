@@ -136,8 +136,8 @@ public class CommonLoginController {
                 new Menu("Dashboard", "index", false, false , "dashboard", new Menu.Meta("概览", "dashboard", false, null))
         ));
 
-        Menu mdmMenu = new Menu("Mdm", "/mdm", false, "noRedirect", "Layout", true, new Menu.Meta("主数据", "system", false, null), List.of(
-                new Menu("Application", "mdm/Application/list", false, false , "mdm/Application/list", new Menu.Meta("应用管理", "druid", false, null)),
+        Menu mdmMenu = new Menu("Mdm", "/mdm", false, "noRedirect", "Layout", true, new Menu.Meta("主数据管理", "system", false, null), List.of(
+                new Menu("Application", "mdm/application/list", false, false , "mdm/application/list", new Menu.Meta("应用管理", "druid", false, null)),
                 new Menu("IndustryClassify", "mdm/IndustryClassify/list", false, false , "mdm/IndustryClassify/list", new Menu.Meta("行业分类", "peoples", false, null)),
                 new Menu("DataCatagory", "mdm/dataCatagory/list", false, false , "mdm/dataCatagory/list", new Menu.Meta("数据目录", "online", false, null)),
                 new Menu("DataDetail", "mdm/dataDetail/list", false, false , "mdm/dataDetail/list", new Menu.Meta("标准数据", "user", false, null)),

@@ -16,13 +16,13 @@
 					<el-button slot="reference" style="padding: 3px 0; " icon="el-icon-question" type="text" title="说明"></el-button>
 				</el-popover>
 				<div style="float: right; margin-left: 10px;">
-					<el-button icon="el-icon-delete" size="small" type="warning" @click="resetForm">清 空</el-button>
+					<el-button icon="Delete"  type="warning" @click="resetForm">清 空</el-button>
 				</div>
 				<div style="float: right; margin-left: 10px;">
-					<el-button icon="el-icon-s-claim" size="small" type="success" @click="submit">发 布</el-button>
+					<el-button icon="el-icon-s-claim"  type="success" @click="submit">发 布</el-button>
 				</div>
 				<div style="float: right; margin-left: 10px;">
-					<el-button icon="el-icon-connection" size="small" type="primary" @click="search" title="查找服务端">添加服务</el-button>
+					<el-button icon="el-icon-connection"  type="primary" @click="search" title="查找服务端">添加服务</el-button>
 				</div>
 			</div>
 
@@ -33,7 +33,7 @@
 					<el-table-column label="服务地址" prop="uri"></el-table-column>
 					<el-table-column label="操作" width="60">
 						<template slot-scope="scope">
-							<el-button v-if="scope.row.selected !== true" size="mini" circle icon="el-icon-plus" type="success" title="点击添加" @click="handleAddRegServer(scope.row)"></el-button>
+							<el-button v-if="scope.row.selected !== true" size="mini" circle icon="Plus" type="success" title="点击添加" @click="handleAddRegServer(scope.row)"></el-button>
 							<el-button v-if="scope.row.selected === true" size="mini" circle icon="el-icon-check" type="primary" title="已添加" @click="handleAddRegServer(scope.row)"></el-button>
 						</template>
 					</el-table-column>
@@ -50,14 +50,14 @@
 					</el-pagination>
 				</div>
 				<div slot="footer" class="dialog-footer">
-					<el-button @click="dialogFormVisible = false" size="small">关 闭</el-button>
+					<el-button @click="dialogFormVisible = false" >关 闭</el-button>
 				</div>
 			</el-dialog>
 
 			<el-row :gutter="24">
 				<el-col :span="8">
 					<el-card shadow="false" class="box-card">
-						<el-form size="small" :rules="rules" ref="form" :model="form" label-width="70px">
+						<el-form  :rules="rules" ref="form" :model="form" label-width="70px">
 							<el-form-item label="名称" prop="name">
 								<el-input v-model="form.name" style="width: 60%;"></el-input>
 							</el-form-item>
@@ -90,13 +90,13 @@
 				</el-col>
 				<el-col :span="16">
 					<el-card shadow="false" class="box-card">
-						<el-table size="small" :data="tableData" style="width: 100%">
+						<el-table  :data="tableData" style="width: 100%">
 						  <el-table-column prop="settingId" label="路由ID"></el-table-column>
 						  <el-table-column prop="name" label="路由名称"></el-table-column>
 						  <el-table-column prop="uri" label="路由地址"></el-table-column>
 						  <el-table-column label="路由权重" width="80">
 							  <template slot-scope="scope">
-								  <el-tag size="small" type="" style="font-weight: bold;">{{scope.row.weight}}</el-tag>
+								  <el-tag  type="" style="font-weight: bold;">{{scope.row.weight}}</el-tag>
 							  </template>
 						  </el-table-column>
 						  <el-table-column label="配置比例">
@@ -108,7 +108,7 @@
 						  </el-table-column>
 						  <el-table-column label="操作" width="60">
 						  	<template slot-scope="scope">
-						  		<el-button size="mini" circle icon="el-icon-delete" title="删除" style="border: 0px; font-size: 12pt;" @click="handleDeleteServer(scope.row)"></el-button>
+						  		<el-button size="mini" circle icon="Delete" title="删除" style="border: 0px; font-size: 12pt;" @click="handleDeleteServer(scope.row)"></el-button>
 						  	</template>
 						  </el-table-column>
 						</el-table>

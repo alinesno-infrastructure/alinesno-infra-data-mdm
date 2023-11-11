@@ -12,10 +12,10 @@
 				<el-form-item label="执行事件" prop="event">
 					<!-- <el-input v-model="groovyForm.event" autocomplete="off"></el-input> -->
 					<el-radio v-model="groovyForm.event" label="request">
-						<el-tag size="small" effect="plain">REQUEST</el-tag>
+						<el-tag  effect="plain">REQUEST</el-tag>
 					</el-radio>
   					<el-radio v-model="groovyForm.event" label="response">
-						  <el-tag size="small" type="success" effect="plain">RESPONSE</el-tag>
+						  <el-tag  type="success" effect="plain">RESPONSE</el-tag>
 					  </el-radio>
 				</el-form-item>
 				<el-form-item label="组件代码" prop="content">
@@ -78,7 +78,7 @@
 							</span>	
 						</span>
 						<div style="float: right; margin-left: 10px;">
-						    <el-button icon="el-icon-circle-plus-outline" size="small" type="success" @click="addRule" title="查找服务端"> 添加组件脚本 </el-button>
+						    <el-button icon="el-icon-circle-plus-outline"  type="success" @click="addRule" title="查找服务端"> 添加组件脚本 </el-button>
 						</div>
 					</div>
 

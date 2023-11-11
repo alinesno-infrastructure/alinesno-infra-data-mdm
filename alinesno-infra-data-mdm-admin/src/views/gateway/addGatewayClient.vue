@@ -5,19 +5,19 @@
 			<el-table size="mini" :data="clientTableData" style="width: 100%">
 				<el-table-column label="客户端ID" width="280">
 					<template slot-scope="scope">
-						<el-tag size="small" type="warning" style="font-weight: bold;">{{scope.row.id}}</el-tag>
+						<el-tag  type="warning" style="font-weight: bold;">{{scope.row.id}}</el-tag>
 					</template>
 				</el-table-column>	
 				<el-table-column label="分组" width="120">
 					<template slot-scope="scope">
-						<el-tag v-for="group in groupOptions" :key="group.value" v-show="(group.value === scope.row.groupCode)" size="small" type="">{{group.label}}</el-tag>
+						<el-tag v-for="group in groupOptions" :key="group.value" v-show="(group.value === scope.row.groupCode)"  type="">{{group.label}}</el-tag>
 					</template>
 				</el-table-column>
 				<el-table-column label="名称" prop="name"></el-table-column>
 				<el-table-column label="IP地址" prop="ip"></el-table-column>
 				<el-table-column label="操作" width="60">
 					<template slot-scope="scope">
-						<el-button size="mini" circle icon="el-icon-plus" type="success" title="添加" @click="handleAddRegClient(scope.row)"></el-button>
+						<el-button size="mini" circle icon="Plus" type="success" title="添加" @click="handleAddRegClient(scope.row)"></el-button>
 					</template>
 				</el-table-column>
 			</el-table>
@@ -33,7 +33,7 @@
 				</el-pagination>
 			</div>
 			<div slot="footer" class="dialog-footer">
-				<el-button @click="dialogFormVisible = false" size="small">关 闭</el-button>
+				<el-button @click="dialogFormVisible = false" >关 闭</el-button>
 			</div>
 		</el-dialog>
 		
@@ -60,35 +60,35 @@
 							</span>
 						</span>
 						<div style="float: right; margin-left: 10px;">
-						    <el-button icon="el-icon-circle-plus-outline" size="small" type="success" @click="search" title="查找客户端">添加客户端</el-button>
+						    <el-button icon="el-icon-circle-plus-outline"  type="success" @click="search" title="查找客户端">添加客户端</el-button>
 						</div>
 						<div style="float: right; margin-left: 10px;">
-						    <el-button icon="el-icon-s-claim" size="small" type="primary" @click="startAll" title="启用所有客户端通行">全部允许</el-button>
+						    <el-button icon="el-icon-s-claim"  type="primary" @click="startAll" title="启用所有客户端通行">全部允许</el-button>
 						</div>
 						<div style="float: right; margin-left: 10px;">
-						    <el-button icon="el-icon-circle-close" size="small" type="danger" @click="stopAll" title="禁用所有客户端通行">全部禁止</el-button>
+						    <el-button icon="el-icon-circle-close"  type="danger" @click="stopAll" title="禁用所有客户端通行">全部禁止</el-button>
 						</div>
 					</div>
 					
-					<el-table size="small" :data="tableData" style="width: 100%">
+					<el-table  :data="tableData" style="width: 100%">
 						<el-table-column label="客户端ID(系统生成)" width="290">
 							<template slot-scope="scope">
-								<el-tag size="small" type="warning" style="font-weight: bold;">{{scope.row.id}}</el-tag>
+								<el-tag  type="warning" style="font-weight: bold;">{{scope.row.id}}</el-tag>
 							</template>
 						</el-table-column>
 						<el-table-column label="分组">
 							<template slot-scope="scope">
-								<el-tag v-for="group in groupOptions" :key="group.value" v-show="(group.value === scope.row.groupCode)" size="small" type="">{{group.label}}</el-tag>
+								<el-tag v-for="group in groupOptions" :key="group.value" v-show="(group.value === scope.row.groupCode)"  type="">{{group.label}}</el-tag>
 							</template>
 						</el-table-column>
 						<el-table-column label="名称" prop="name"></el-table-column>
 						<el-table-column label="IP地址" prop="ip"></el-table-column>
 						<el-table-column label="TOKEN" >
 							<template slot-scope="scope">
-								<el-tag  v-if="scope.row.token != undefined && scope.row.token != ''" size="small" type="success" style="font-weight: bold;">JWT通行令牌 </el-tag>
-								<el-tag  v-if="scope.row.token == undefined || scope.row.token == ''" size="small" type="" style="font-weight: bold;">无通行令牌 </el-tag>
-								<el-tag  v-if="scope.row.isTimeout == '1'" size="small" type="danger" style="font-weight: bold;">已过期 </el-tag>&nbsp;
-								<el-tag  v-if="scope.row.token != undefined && scope.row.token != '' && scope.row.isTimeout != '1'" size="small" type="primary" style="font-weight: bold;"> 未过期 </el-tag>
+								<el-tag  v-if="scope.row.token != undefined && scope.row.token != ''"  type="success" style="font-weight: bold;">JWT通行令牌 </el-tag>
+								<el-tag  v-if="scope.row.token == undefined || scope.row.token == ''"  type="" style="font-weight: bold;">无通行令牌 </el-tag>
+								<el-tag  v-if="scope.row.isTimeout == '1'"  type="danger" style="font-weight: bold;">已过期 </el-tag>&nbsp;
+								<el-tag  v-if="scope.row.token != undefined && scope.row.token != '' && scope.row.isTimeout != '1'"  type="primary" style="font-weight: bold;"> 未过期 </el-tag>
 							</template>
 						</el-table-column>
 						<el-table-column label="TOKEN过期时间" prop="tokenEffectiveTime"></el-table-column>						
@@ -110,13 +110,13 @@
 											<div>
 												过期时间：<el-date-picker v-model="tokenEffectiveTime" type="datetime" placeholder="选择截止过期时间" style="width:300px;" value-format="yyyy-MM-dd HH:mm:ss"></el-date-picker><br/><br/>
 												加密密钥：<el-input placeholder="请输入加密密钥(最长200个字符，为空则默认取客户端ID)" v-model="secretKey" maxlength="200" style="width:430px;" clearable></el-input><br/><br/>
-												<el-input size="small" type="textarea" :rows="8" placeholder="JWT通行令牌内容" v-model="token" :disabled="tokenIsTrue"></el-input><br/><br/>											
+												<el-input  type="textarea" :rows="8" placeholder="JWT通行令牌内容" v-model="token" :disabled="tokenIsTrue"></el-input><br/><br/>											
 
 												<div style="float: right; margin-left: 10px;">
-													<el-button icon="el-icon-delete" size="small" type="danger" @click="handleRemoveToken(scope.row)">清空令牌</el-button>
-													<el-button icon="el-icon-refresh" size="small" type="primary" @click="handleCreateToken(scope.row)">生成令牌</el-button>
-													<el-button icon="el-icon-document-copy" size="small" type="success" @click="handleCopyToken()">复制令牌</el-button>
-													<!-- <el-button icon="el-icon-circle-close" size="small" type="" @click="handleCloseToken(scope.$index)">关闭</el-button> -->
+													<el-button icon="Delete"  type="danger" @click="handleRemoveToken(scope.row)">清空令牌</el-button>
+													<el-button icon="Refresh"  type="primary" @click="handleCreateToken(scope.row)">生成令牌</el-button>
+													<el-button icon="el-icon-document-copy"  type="success" @click="handleCopyToken()">复制令牌</el-button>
+													<!-- <el-button icon="el-icon-circle-close"  type="" @click="handleCloseToken(scope.$index)">关闭</el-button> -->
 												</div>
 
 											</div>

@@ -4,7 +4,7 @@
       <el-col class="panel-col" :span="19">
         <div class="grid-content">
           <div class="panel-header">
-            <div class="header-title"><i class="fa-solid fa-link"></i> 业务最新巡检</div>
+            <div class="header-title"><i class="fa-solid fa-link"></i> 集成主数据方式</div>
           </div>
           <div class="panel-body" style="height: auto;position: relative;">
               <div class="direct-box">

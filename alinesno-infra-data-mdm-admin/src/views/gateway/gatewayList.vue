@@ -35,20 +35,20 @@
 						  		服务状态:{{form.status === '0' ? '启用': form.status === '1' ? '禁用' : '所有'}}<i class="el-icon-caret-bottom el-icon--right"></i>
 						  	</el-button>
 						  </el-popover>
-						  <el-button slot="append" icon="el-icon-search" @click="search" title="查询网关服务"></el-button>
+						  <el-button slot="append" icon="Search" @click="search" title="查询网关服务"></el-button>
 					  </el-input>
 					</div>
 				</el-col>
 			</el-row>
-			<el-table size="small" :data="tableData" style="width: 100%">
+			<el-table  :data="tableData" style="width: 100%">
 				<el-table-column label="服务ID" width="250">
 					<template slot-scope="scope">
-						<el-tag size="small" type="warning" style="font-weight: bold;">{{scope.row.routeId}}</el-tag>
+						<el-tag  type="warning" style="font-weight: bold;">{{scope.row.routeId}}</el-tag>
 					</template>
 				</el-table-column>
 				<el-table-column label="分组" width="100">
 					<template slot-scope="scope">
-						<el-tag v-for="group in groupOptions" :key="group.value" v-show="(group.value === scope.row.groupCode)" size="small" type="">{{group.label}}</el-tag>
+						<el-tag v-for="group in groupOptions" :key="group.value" v-show="(group.value === scope.row.groupCode)"  type="">{{group.label}}</el-tag>
 					</template>
 				</el-table-column>
 				<el-table-column label="系统代号>服务名称" width="300">
@@ -58,7 +58,7 @@
 				</el-table-column>
 				<el-table-column label="服务地址" :show-overflow-tooltip="true">
 					<template slot-scope="scope">
-						<el-tag size="small" type="success" style="font-weight: bold;">{{scope.row.uri}}</el-tag>
+						<el-tag  type="success" style="font-weight: bold;">{{scope.row.uri}}</el-tag>
 					</template>
 				</el-table-column>
 				<el-table-column label="断言路径">
@@ -71,7 +71,7 @@
 									<span class="route-title">网关代理地址</span>
 								</div>
 								<span>
-									<el-tag size="small" type="success" style="font-weight: bold;">{{GLOBAL_VAR.gatewayRoutesURL}}{{scope.row.path}}</el-tag>
+									<el-tag  type="success" style="font-weight: bold;">{{GLOBAL_VAR.gatewayRoutesURL}}{{scope.row.path}}</el-tag>
 									<el-button slot="reference" icon="el-icon-document-copy" type="text" @click="handleCopy(scope.row.path)" title="复制"></el-button>
 								</span>
 								<br/>
@@ -83,16 +83,16 @@
 				<el-table-column label="请求模式" prop="method" width="90"></el-table-column>
 				<el-table-column label="熔断器" prop="filterHystrixName" width="100">
 					<template slot-scope="scope">
-						<el-tag effect="plain" size="small" v-if="scope.row.filterHystrixName === 'default'" type="">全局方法</el-tag>
-						<el-tag effect="plain" size="small" v-if="scope.row.filterHystrixName === 'custom'" type="success">自定义方法</el-tag>
+						<el-tag effect="plain"  v-if="scope.row.filterHystrixName === 'default'" type="">全局方法</el-tag>
+						<el-tag effect="plain"  v-if="scope.row.filterHystrixName === 'custom'" type="success">自定义方法</el-tag>
 					</template>
 				</el-table-column>
 				<el-table-column label="限流器" prop="filterRateLimiterName" width="100"></el-table-column>
 				<el-table-column label="创建时间" width="140" prop="createTime"></el-table-column>
 				<el-table-column label="状态" width="80" prop="status" :formatter="formatterStatus">
 					<template slot-scope="scope">
-						<el-tag effect="dark" size="small" v-if="scope.row.status === '0'" type="">启用</el-tag>
-						<el-tag effect="dark" size="small" v-if="scope.row.status === '1'" type="danger">禁用</el-tag>
+						<el-tag effect="dark"  v-if="scope.row.status === '0'" type="">启用</el-tag>
+						<el-tag effect="dark"  v-if="scope.row.status === '1'" type="danger">禁用</el-tag>
 					</template>
 				</el-table-column>
 				<el-table-column label="操作" width="100">
@@ -105,11 +105,11 @@
 							<el-dropdown-item icon="el-icon-user" :command="{command:'addClient', row: scope.row}">注册客户端</el-dropdown-item>
 							<el-dropdown-item icon="el-icon-tickets" :command="{command:'info', row: scope.row}">详情</el-dropdown-item>
 <!--							<el-dropdown-item icon="el-icon-orange" :command="{command:'topology', row: scope.row}">拓扑</el-dropdown-item>-->
-							<el-dropdown-item icon="el-icon-edit" :command="{command:'edit', row: scope.row}">编辑</el-dropdown-item>
+							<el-dropdown-item icon="Edit" :command="{command:'edit', row: scope.row}">编辑</el-dropdown-item>
 							<el-dropdown-item icon="el-icon-eleme" :command="{command:'rule', row: scope.row}">规则组件</el-dropdown-item>
 							<el-dropdown-item :command="{command:'start', row: scope.row}" divided><i class="el-icon-success" style="color: #409EFF;"></i>启用</el-dropdown-item>
 							<el-dropdown-item :command="{command:'stop', row: scope.row}"><i class="el-icon-error" style="color: red;"></i>禁用</el-dropdown-item>
-							<el-dropdown-item icon="el-icon-delete" :command="{command:'delete', row: scope.row}" divided>删除</el-dropdown-item>
+							<el-dropdown-item icon="Delete" :command="{command:'delete', row: scope.row}" divided>删除</el-dropdown-item>
 						  </el-dropdown-menu>
 						</el-dropdown>
 					</template>

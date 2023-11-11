@@ -18,8 +18,8 @@
 					<el-card shadow="false" class="paper-card__body" v-for="(item,index) in clientList" :key="index" style="margin-bottom: 10px; font-size: 10pt;">					
 						<el-row :gutter="24">
 							<el-col :span="20" style="border: 0px solid red;">
-								<i class="el-icon-s-platform" style="font-size: 10pt;"></i>&nbsp;<el-tag size="small" style="font-weight: bold;">{{item.name}}</el-tag>
-								<i class="el-icon-caret-right" style="font-size: 10pt;"></i>&nbsp;<el-tag size="small" type="warning" style="font-weight: bold;">{{item.id}}</el-tag>
+								<i class="el-icon-s-platform" style="font-size: 10pt;"></i>&nbsp;<el-tag  style="font-weight: bold;">{{item.name}}</el-tag>
+								<i class="el-icon-caret-right" style="font-size: 10pt;"></i>&nbsp;<el-tag  type="warning" style="font-weight: bold;">{{item.id}}</el-tag>
 							</el-col>
 							<el-col :span="4" style="border: 0px solid red;">
 								<el-switch v-model="item.regServerStatus" @change="handleSwitchChange(item,index)" active-color="#13ce66" inactive-color="#ff4949" active-value="0" inactive-value="1" style="float: right;"></el-switch>
